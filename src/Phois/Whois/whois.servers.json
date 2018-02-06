@@ -1776,7 +1776,7 @@
         "Domain Status: No Object Found"
     ],
     "ir": [
-        "whois.nic.ir",
+        "http://whois.nic.ir/Query_Whois_Server?name=",
         "no entries found"
     ],
     "is": [
