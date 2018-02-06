@@ -54,6 +54,17 @@ class Whois
 
                     $data = curl_exec($ch);
 
+                    if($this->TLDs == 'ir'){
+                      $ex = explode('Answer:', $data);
+                      if(count($ex) > 0){
+                        $data = $ex[1];
+                        $data = str_ireplace('© 2007-2009 IRNIC — Dot-IR (.ir) ccTLD Registry', '', $data);
+                        $data = str_ireplace('<pre>', '', $data);
+                        $data = str_ireplace('</pre>', "\r\n", $data);
+                        $data = str_ireplace('<br/>', "\r\n", $data);
+                      }
+                    }
+
                     if (curl_error($ch)) {
                         return "Connection error!";
                     } else {
